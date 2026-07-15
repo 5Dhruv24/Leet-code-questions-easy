@@ -12,10 +12,10 @@ using namespace std;
     int L=50;
     int C=100;
     int D=500;
-    int L=1000;
+    int M=1000;
     for (int i = 0; i < s.size(); i++)
     {
-        if (s[i]=='I' or s[i]=='i'){
+        if (s[i]=='I' ){
             if (s[i+1]=='V'){
                 n=n+V-I;
                 i=i+1;
@@ -30,10 +30,10 @@ using namespace std;
                 n=n+I;
             }
         }
-        else if(s[i]=='V' or s[i]=='V'){
+        else if(s[i]=='V'){
             n=n+V;
         }
-        else if(s[i]=='X' or s[i]=='x'){
+        else if(s[i]=='X' ){
             if (s[i+1]=='L'){
                 n=n-X+L;
                 i=i+1;
@@ -49,12 +49,17 @@ using namespace std;
             }
             
         }
-        else if(s[i]=='L' or s[i]=='l'){
+        else if(s[i]=='L' ){
             n=n+50;
         }
-        else if(s[i]=='C' or s[i]=='c'){
-            else if(s[i+1]=='C'){
-                n=n-+C;
+        else if(s[i]=='C' ){
+            if(s[i+1]=='D'){
+                n=n-C+D;
+                i=i+1;
+                continue;
+            }
+            else if(s[i+1]=='M'){
+                n=n-C+M;
                 i=i+1;
                 continue;
             }
@@ -62,13 +67,13 @@ using namespace std;
                 n=n+C;
             }
         }
-        else if(s[i]=='D' or s[i]=='d'){
-            n=n+500;
+        else if(s[i]=='D' ){
+            n=n+D;
         }
-        else if(s[i]=='M' or s[i]=='m'){
-            n=n+1000;
+        else if(s[i]=='M' ){
+            n=n+M;
         }
-        /* code */
+        
     }
     
     return n;
